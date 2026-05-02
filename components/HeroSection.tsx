@@ -3,8 +3,15 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 export default function HeroSection() {
+  const t = useTranslations("hero");
+  const pathname = usePathname();
+  const currentLocale = routing.locales.find((l) => pathname.startsWith(`/${l}`)) ?? routing.defaultLocale;
+
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
@@ -33,30 +40,26 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-[#f5f5f7]/70 text-[17px] tracking-widest uppercase mb-4 font-medium"
         >
-          Eagle Flash · 闪电鹰
+          {t("eyebrow")}
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-[#f5f5f7] font-bold leading-none tracking-tight mb-6"
+          className="text-[#f5f5f7] font-bold leading-tight tracking-tight mb-6 whitespace-pre-line"
           style={{ fontSize: "clamp(56px, 8vw, 96px)" }}
         >
-          光，所到之处
-          <br />
-          无可阻挡
+          {t("title")}
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-[#f5f5f7]/70 text-[19px] mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-[#f5f5f7]/70 text-[19px] mb-10 max-w-2xl mx-auto leading-relaxed whitespace-pre-line"
         >
-          义乌市闪电鹰照明科技 · 100+ 款专业手电筒
-          <br />
-          从户外探险到工业应用，总有一款为你而生
+          {t("subtitle")}
         </motion.p>
 
         <motion.div
@@ -66,16 +69,16 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link
-            href="/products"
+            href={`/${currentLocale}/products`}
             className="bg-[#0071e3] text-white text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#0077ed] transition-colors"
           >
-            探索全系产品
+            {t("cta_primary")}
           </Link>
           <Link
-            href="/contact"
+            href={`/${currentLocale}/contact`}
             className="border border-white/40 text-white text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors"
           >
-            联系我们
+            {t("cta_secondary")}
           </Link>
         </motion.div>
       </motion.div>

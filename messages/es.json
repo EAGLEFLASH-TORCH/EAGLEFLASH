@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "products": "Productos",
+    "contact": "Contacto",
+    "cta": "Pedir cotización"
+  },
+  "hero": {
+    "eyebrow": "Eagle Flash · Iluminación Profesional",
+    "title": "La luz que avanza\nImparable",
+    "subtitle": "Eagle Flash Lighting Technology · Más de 100 linternas profesionales\nDesde aventuras al aire libre hasta uso industrial, siempre hay una para ti",
+    "cta_primary": "Explorar productos",
+    "cta_secondary": "Contáctanos"
+  },
+  "features": {
+    "f1_eyebrow": "Brillo Extremo",
+    "f1_title": "3000 Lúmenes\nIlumiina la oscuridad",
+    "f1_desc": "La serie insignia Eagle Flash utiliza los últimos chips LED para ofrecer hasta 3000 lúmenes con un alcance efectivo de más de 1000 metros. Perfecta para senderismo nocturno, minas o rescate al aire libre.",
+    "f2_eyebrow": "Resistencia Total",
+    "f2_title": "Aluminio Aeronáutico\nProtección IPX8",
+    "f2_desc": "Fabricada en aluminio aeronáutico 6061-T6 con acabado anodizado para mayor resistencia a la corrosión e impactos. Clasificación IPX8 impermeable hasta 100 metros bajo el agua.",
+    "f3_eyebrow": "Para Cada Necesidad",
+    "f3_title": "Más de 100 Modelos\nUno para Cada Uso",
+    "f3_desc": "Desde bolígrafos-linterna de bolsillo hasta linternas tácticas, lámparas UV hasta linternas de buceo, linternas infantiles hasta lámparas de trabajo COB — cubrimos todos los escenarios."
+  },
+  "home": {
+    "featured_eyebrow": "Productos Destacados",
+    "featured_title": "Series Populares",
+    "view_all": "Ver todo",
+    "cta_title": "¿Buscas el producto adecuado?",
+    "cta_desc": "Personalización OEM / ODM disponible. Descuentos por volumen.\nContáctanos para una cotización.",
+    "browse": "Ver productos",
+    "contact_us": "Contáctanos"
+  },
+  "products": {
+    "title": "Productos",
+    "subtitle": "Más de 100 linternas profesionales para cada escenario",
+    "search_placeholder": "Buscar por nombre o modelo...",
+    "all_categories": "Todos",
+    "found": "Encontrado",
+    "found_unit": "productos",
+    "no_results": "No se encontraron productos",
+    "clear_filters": "Limpiar filtros",
+    "model": "Modelo"
+  },
+  "product_detail": {
+    "call": "Llamar",
+    "wechat": "WeChat: 18857944238",
+    "work_hours": "Lun–Sáb 8:00–18:00 (CST)",
+    "specs_title": "Especificaciones Técnicas",
+    "back": "← Volver a productos",
+    "spec_model": "Modelo",
+    "spec_size": "Tamaño",
+    "spec_weight": "Peso",
+    "spec_material": "Material",
+    "spec_battery": "Batería",
+    "spec_lumens": "Lúmenes",
+    "spec_waterproof": "Impermeabilidad",
+    "spec_colors": "Colores",
+    "spec_category": "Categoría"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Obtén una cotización, infórmate sobre pedidos personalizados o haz cualquier pregunta",
+    "phone_title": "Teléfono",
+    "phone_desc": "Llámanos para una cotización inmediata",
+    "phone_cta": "Llamar ahora →",
+    "wechat_title": "WeChat",
+    "wechat_desc": "Agréganos en WeChat para chatear",
+    "wechat_hint": "Busca el ID de WeChat para agregar",
+    "company_title": "Información de la Empresa",
+    "company_name_label": "Empresa",
+    "company_name": "Yiwu Eagle Flash Lighting Technology Co., Ltd.",
+    "brand_label": "Marca",
+    "brand": "Eagle Flash",
+    "business_label": "Negocio",
+    "business": "I+D, fabricación y venta de linternas profesionales",
+    "service_label": "Servicios",
+    "service": "Personalización OEM / ODM, muestras disponibles",
+    "location_label": "Ubicación",
+    "location": "Yiwu, Provincia de Zhejiang, China",
+    "oem_title": "🏭 Personalización OEM / ODM disponible",
+    "oem_desc": "Logo, color y embalaje personalizable. Muestras aceptadas.",
+    "work_hours": "Horario: Lun–Sáb 8:00–18:00"
+  },
+  "footer": {
+    "products": "Productos",
+    "services": "Servicios",
+    "about": "Acerca de",
+    "oem": "OEM Personalizado",
+    "odm": "Servicio ODM",
+    "bulk": "Pedidos masivos",
+    "inquiry": "Consulta",
+    "intro": "Sobre nosotros",
+    "contact": "Contacto",
+    "all_products": "Ver todo",
+    "copyright": "Copyright © 2025 Yiwu Eagle Flash Lighting Technology Co., Ltd. Todos los derechos reservados.",
+    "outdoor": "Outdoor Pro",
+    "tactical": "Táctica",
+    "mini": "Mini",
+    "rechargeable": "Recargable"
+  }
+}

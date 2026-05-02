@@ -52,7 +52,7 @@ export default function FeatureSection({
         {/* Image */}
         <FadeInUp delay={0.15} className="flex-1 w-full">
           <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-            <Image src={image} alt={imageAlt} fill className="object-cover" />
+            <Image src={image} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
         </FadeInUp>
       </div>

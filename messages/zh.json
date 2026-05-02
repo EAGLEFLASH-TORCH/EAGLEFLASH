@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "首页",
+    "products": "产品",
+    "contact": "联系",
+    "cta": "立即咨询"
+  },
+  "hero": {
+    "eyebrow": "Eagle Flash · 闪电鹰",
+    "title": "光，所到之处\n无可阻挡",
+    "subtitle": "义乌市闪电鹰照明科技 · 100+ 款专业手电筒\n从户外探险到工业应用，总有一款为你而生",
+    "cta_primary": "探索全系产品",
+    "cta_secondary": "联系我们"
+  },
+  "features": {
+    "f1_eyebrow": "极致亮度",
+    "f1_title": "3000 流明\n让黑暗无处遁形",
+    "f1_desc": "Eagle Flash 旗舰系列采用最新 LED 芯片，最高输出 3000 流明，有效照射距离超过 1000 米。无论是深夜山林、矿井作业还是户外搜救，都能提供可靠光源。",
+    "f2_eyebrow": "坚不可摧",
+    "f2_title": "航空铝合金\nIPX8 深水防护",
+    "f2_desc": "采用 6061-T6 航空级铝合金机身，阳极氧化处理，耐腐蚀、抗冲击。IPX8 防水等级可在水下 100 米正常工作，为专业潜水员量身打造。",
+    "f3_eyebrow": "多元选择",
+    "f3_title": "100+ 款型号\n总有一款为你",
+    "f3_desc": "从口袋里的迷你笔形手电，到专业战术灯；从 UV 紫外线验钞灯到潜水专用灯；从儿童安全夜灯到工地 COB 工作灯，覆盖所有使用场景。"
+  },
+  "home": {
+    "featured_eyebrow": "精选产品",
+    "featured_title": "热门系列",
+    "view_all": "查看全部",
+    "cta_title": "寻找合适的产品？",
+    "cta_desc": "支持 OEM / ODM 定制，批量采购享优惠。\n随时联系我们获取报价。",
+    "browse": "浏览产品",
+    "contact_us": "联系我们"
+  },
+  "products": {
+    "title": "产品中心",
+    "subtitle": "100+ 款专业手电筒，覆盖全场景需求",
+    "search_placeholder": "搜索产品名称或型号...",
+    "all_categories": "全部",
+    "found": "共找到",
+    "found_unit": "款产品",
+    "no_results": "没有找到匹配的产品",
+    "clear_filters": "清除筛选",
+    "model": "型号"
+  },
+  "product_detail": {
+    "call": "电话咨询",
+    "wechat": "微信：18857944238",
+    "work_hours": "工作时间 周一至周六 8:00–18:00",
+    "specs_title": "技术规格",
+    "back": "← 返回产品列表",
+    "spec_model": "型号",
+    "spec_size": "尺寸",
+    "spec_weight": "重量",
+    "spec_material": "材质",
+    "spec_battery": "电池容量",
+    "spec_lumens": "亮度",
+    "spec_waterproof": "防水等级",
+    "spec_colors": "可选颜色",
+    "spec_category": "分类"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "获取产品报价、定制服务或任何疑问，欢迎随时联系",
+    "phone_title": "电话联系",
+    "phone_desc": "随时致电，即刻获取报价",
+    "phone_cta": "立即拨打 →",
+    "wechat_title": "微信联系",
+    "wechat_desc": "添加微信，随时沟通需求",
+    "wechat_hint": "搜索微信号添加好友",
+    "company_title": "公司信息",
+    "company_name_label": "公司全称",
+    "company_name": "义乌市闪电鹰照明科技有限公司",
+    "brand_label": "品牌",
+    "brand": "Eagle Flash · 闪电鹰",
+    "business_label": "主营",
+    "business": "专业手电筒研发、生产、销售",
+    "service_label": "服务",
+    "service": "OEM / ODM 定制，支持打样",
+    "location_label": "所在地",
+    "location": "浙江省义乌市",
+    "oem_title": "🏭 支持 OEM / ODM 定制",
+    "oem_desc": "可定制 Logo、颜色、包装，支持来图打样，欢迎咨询",
+    "work_hours": "工作时间：周一至周六 8:00–18:00"
+  },
+  "footer": {
+    "products": "产品",
+    "services": "服务",
+    "about": "关于",
+    "oem": "OEM 定制",
+    "odm": "ODM 服务",
+    "bulk": "批量采购",
+    "inquiry": "产品咨询",
+    "intro": "公司介绍",
+    "contact": "联系我们",
+    "all_products": "查看全部",
+    "copyright": "Copyright © 2025 义乌市闪电鹰照明科技有限公司. All rights reserved.",
+    "outdoor": "专业户外",
+    "tactical": "战术系列",
+    "mini": "迷你便携",
+    "rechargeable": "充电系列"
+  }
+}

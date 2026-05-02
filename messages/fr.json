@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "contact": "Contact",
+    "cta": "Demander un devis"
+  },
+  "hero": {
+    "eyebrow": "Eagle Flash · Éclairage Professionnel",
+    "title": "La lumière,\nPartout, Sans Limites",
+    "subtitle": "Eagle Flash Lighting Technology · Plus de 100 lampes torches professionnelles\nDe l'aventure en plein air à l'usage industriel, trouvez la lampe qu'il vous faut",
+    "cta_primary": "Découvrir les produits",
+    "cta_secondary": "Nous contacter"
+  },
+  "features": {
+    "f1_eyebrow": "Luminosité Extrême",
+    "f1_title": "3000 Lumens\nPercez l'obscurité",
+    "f1_desc": "La gamme phare Eagle Flash utilise les dernières puces LED pour offrir jusqu'à 3000 lumens avec une portée effective de plus de 1000 mètres. Idéale pour la randonnée nocturne, les mines ou la recherche en plein air.",
+    "f2_eyebrow": "Indestructible",
+    "f2_title": "Aluminium Aéronautique\nProtection IPX8",
+    "f2_desc": "Fabriquée en aluminium aéronautique 6061-T6 avec traitement anodisé pour une résistance supérieure à la corrosion et aux chocs. Étanchéité IPX8 jusqu'à 100 mètres sous l'eau.",
+    "f3_eyebrow": "Tous les Besoins",
+    "f3_title": "Plus de 100 Modèles\nUn pour Chaque Usage",
+    "f3_desc": "Des stylos-lampes de poche aux lampes tactiques, des lampes UV aux lampes de plongée, des veilleuses enfants aux lampes de travail COB — nous couvrons tous les cas d'usage."
+  },
+  "home": {
+    "featured_eyebrow": "Produits Vedettes",
+    "featured_title": "Séries Populaires",
+    "view_all": "Voir tout",
+    "cta_title": "Vous cherchez le bon produit ?",
+    "cta_desc": "Personnalisation OEM / ODM disponible. Remises sur commandes en gros.\nContactez-nous pour un devis.",
+    "browse": "Parcourir les produits",
+    "contact_us": "Nous contacter"
+  },
+  "products": {
+    "title": "Produits",
+    "subtitle": "Plus de 100 lampes torches professionnelles pour chaque scénario",
+    "search_placeholder": "Rechercher par nom ou modèle...",
+    "all_categories": "Tout",
+    "found": "Trouvé",
+    "found_unit": "produits",
+    "no_results": "Aucun produit trouvé",
+    "clear_filters": "Effacer les filtres",
+    "model": "Modèle"
+  },
+  "product_detail": {
+    "call": "Appeler",
+    "wechat": "WeChat : 18857944238",
+    "work_hours": "Lun–Sam 8h00–18h00 (CST)",
+    "specs_title": "Spécifications Techniques",
+    "back": "← Retour aux produits",
+    "spec_model": "Modèle",
+    "spec_size": "Taille",
+    "spec_weight": "Poids",
+    "spec_material": "Matériau",
+    "spec_battery": "Batterie",
+    "spec_lumens": "Lumens",
+    "spec_waterproof": "Étanchéité",
+    "spec_colors": "Couleurs",
+    "spec_category": "Catégorie"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Obtenez un devis, renseignez-vous sur les commandes personnalisées ou posez vos questions",
+    "phone_title": "Téléphone",
+    "phone_desc": "Appelez-nous pour un devis immédiat",
+    "phone_cta": "Appeler maintenant →",
+    "wechat_title": "WeChat",
+    "wechat_desc": "Ajoutez-nous sur WeChat pour discuter",
+    "wechat_hint": "Recherchez l'ID WeChat pour ajouter",
+    "company_title": "Informations Société",
+    "company_name_label": "Société",
+    "company_name": "Yiwu Eagle Flash Lighting Technology Co., Ltd.",
+    "brand_label": "Marque",
+    "brand": "Eagle Flash",
+    "business_label": "Activité",
+    "business": "R&D, fabrication et vente de lampes torches professionnelles",
+    "service_label": "Services",
+    "service": "Personnalisation OEM / ODM, échantillons disponibles",
+    "location_label": "Localisation",
+    "location": "Yiwu, Province du Zhejiang, Chine",
+    "oem_title": "🏭 Personnalisation OEM / ODM disponible",
+    "oem_desc": "Logo, couleur et emballage personnalisables. Échantillons acceptés.",
+    "work_hours": "Horaires : Lun–Sam 8h00–18h00"
+  },
+  "footer": {
+    "products": "Produits",
+    "services": "Services",
+    "about": "À propos",
+    "oem": "OEM Personnalisé",
+    "odm": "Service ODM",
+    "bulk": "Commandes en gros",
+    "inquiry": "Renseignement",
+    "intro": "À propos de nous",
+    "contact": "Contact",
+    "all_products": "Voir tout",
+    "copyright": "Copyright © 2025 Yiwu Eagle Flash Lighting Technology Co., Ltd. Tous droits réservés.",
+    "outdoor": "Outdoor Pro",
+    "tactical": "Tactique",
+    "mini": "Mini",
+    "rechargeable": "Rechargeable"
+  }
+}

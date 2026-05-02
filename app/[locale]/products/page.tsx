@@ -1,11 +1,13 @@
 "use client";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import ProductCard from "@/components/ProductCard";
 import FadeInUp from "@/components/motion/FadeInUp";
 import { products, categories } from "@/data/products";
 
 export default function ProductsPage() {
+  const t = useTranslations("products");
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("全部");
 
@@ -23,39 +25,35 @@ export default function ProductsPage() {
 
   return (
     <div className="bg-white min-h-screen pt-14">
-      {/* Header */}
       <div className="bg-[#f5f5f7] pt-20 pb-16 px-6 text-center">
         <FadeInUp>
           <h1 className="font-bold text-[#1d1d1f] tracking-tight mb-3" style={{ fontSize: "clamp(40px, 6vw, 64px)" }}>
-            产品中心
+            {t("title")}
           </h1>
         </FadeInUp>
         <FadeInUp delay={0.1}>
-          <p className="text-[#6e6e73] text-[19px]">100+ 款专业手电筒，覆盖全场景需求</p>
+          <p className="text-[#6e6e73] text-[19px]">{t("subtitle")}</p>
         </FadeInUp>
       </div>
 
       <div className="max-w-[1200px] mx-auto px-6 py-12">
-        {/* Filters */}
         <FadeInUp>
-          <div className="flex flex-col md:flex-row gap-4 mb-12">
-            <div className="flex-1 relative">
-              <input
-                type="text"
-                placeholder="搜索产品名称或型号..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-[#f5f5f7] border-0 rounded-xl px-5 py-3 text-[15px] text-[#1d1d1f] placeholder-[#6e6e73] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30"
-              />
-            </div>
+          <div className="flex flex-col md:flex-row gap-4 mb-8">
+            <input
+              type="text"
+              placeholder={t("search_placeholder")}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="flex-1 bg-[#f5f5f7] border-0 rounded-xl px-5 py-3 text-[15px] text-[#1d1d1f] placeholder-[#6e6e73] focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30"
+            />
             <div className="flex gap-2 flex-wrap">
-              {["全部", ...categories].map((cat) => (
+              {[t("all_categories"), ...categories].map((cat) => (
                 <motion.button
                   key={cat}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => setSelectedCategory(cat === t("all_categories") ? "全部" : cat)}
                   className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
-                    selectedCategory === cat
+                    (cat === t("all_categories") && selectedCategory === "全部") || selectedCategory === cat
                       ? "bg-[#1d1d1f] text-white"
                       : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed]"
                   }`}
@@ -67,12 +65,10 @@ export default function ProductsPage() {
           </div>
         </FadeInUp>
 
-        {/* Count */}
         <p className="text-[13px] text-[#6e6e73] mb-6">
-          共找到 <span className="text-[#1d1d1f] font-medium">{filtered.length}</span> 款产品
+          {t("found")} <span className="text-[#1d1d1f] font-medium">{filtered.length}</span> {t("found_unit")}
         </p>
 
-        {/* Grid */}
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((product, i) => (
@@ -83,12 +79,12 @@ export default function ProductsPage() {
           </div>
         ) : (
           <div className="text-center py-32">
-            <p className="text-[17px] text-[#6e6e73]">没有找到匹配的产品</p>
+            <p className="text-[17px] text-[#6e6e73]">{t("no_results")}</p>
             <button
               onClick={() => { setSearch(""); setSelectedCategory("全部"); }}
               className="mt-4 text-[#0071e3] text-[15px] hover:underline"
             >
-              清除筛选
+              {t("clear_filters")}
             </button>
           </div>
         )}
