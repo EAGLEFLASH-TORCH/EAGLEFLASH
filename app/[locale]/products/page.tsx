@@ -1,15 +1,18 @@
 "use client";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import ProductCard from "@/components/ProductCard";
 import FadeInUp from "@/components/motion/FadeInUp";
-import { products, categories } from "@/data/products";
+import { getLocalizedCategories, getLocalizedProducts } from "@/data/products";
 
 export default function ProductsPage() {
   const t = useTranslations("products");
+  const locale = useLocale();
+  const products = useMemo(() => getLocalizedProducts(locale), [locale]);
+  const categories = useMemo(() => getLocalizedCategories(locale), [locale]);
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("全部");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -18,10 +21,10 @@ export default function ProductsPage() {
         p.name.includes(search) ||
         p.model.toUpperCase().includes(search.toUpperCase()) ||
         p.description.includes(search);
-      const matchCategory = selectedCategory === "全部" || p.category === selectedCategory;
+      const matchCategory = selectedCategory === null || p.category === selectedCategory;
       return matchSearch && matchCategory;
     });
-  }, [search, selectedCategory]);
+  }, [products, search, selectedCategory]);
 
   return (
     <div className="bg-white min-h-screen pt-14">
@@ -51,9 +54,9 @@ export default function ProductsPage() {
                 <motion.button
                   key={cat}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => setSelectedCategory(cat === t("all_categories") ? "全部" : cat)}
+                  onClick={() => setSelectedCategory(cat === t("all_categories") ? null : cat)}
                   className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
-                    (cat === t("all_categories") && selectedCategory === "全部") || selectedCategory === cat
+                    (cat === t("all_categories") && selectedCategory === null) || selectedCategory === cat
                       ? "bg-[#1d1d1f] text-white"
                       : "bg-[#f5f5f7] text-[#6e6e73] hover:bg-[#e8e8ed]"
                   }`}
@@ -81,7 +84,7 @@ export default function ProductsPage() {
           <div className="text-center py-32">
             <p className="text-[17px] text-[#6e6e73]">{t("no_results")}</p>
             <button
-              onClick={() => { setSearch(""); setSelectedCategory("全部"); }}
+              onClick={() => { setSearch(""); setSelectedCategory(null); }}
               className="mt-4 text-[#0071e3] text-[15px] hover:underline"
             >
               {t("clear_filters")}

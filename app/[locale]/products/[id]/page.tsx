@@ -1,15 +1,16 @@
 "use client";
 import { use } from "react";
-import { products } from "@/data/products";
+import { getLocalizedProducts } from "@/data/products";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import FadeInUp from "@/components/motion/FadeInUp";
 
-export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default function ProductDetailPage({ params }: { params: Promise<{ id: string; locale: string }> }) {
+  const { id, locale } = use(params);
   const t = useTranslations("product_detail");
+  const products = getLocalizedProducts(locale);
   const product = products.find((p) => p.id === id);
   if (!product) notFound();
 
@@ -90,7 +91,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       </div>
 
       <div className="py-12 text-center">
-        <Link href="/products" className="text-[#0071e3] text-[15px] hover:underline">
+        <Link href={`/${locale}/products`} className="text-[#0071e3] text-[15px] hover:underline">
           {t("back")}
         </Link>
       </div>

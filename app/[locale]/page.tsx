@@ -1,14 +1,15 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import HeroSection from "@/components/HeroSection";
 import FeatureSection from "@/components/FeatureSection";
 import ProductCard from "@/components/ProductCard";
 import FadeInUp from "@/components/motion/FadeInUp";
-import { products } from "@/data/products";
+import { getLocalizedProducts } from "@/data/products";
 import Link from "next/link";
 
 export default function Home() {
   const t = useTranslations();
-  const featured = products.slice(0, 4);
+  const locale = useLocale();
+  const featured = getLocalizedProducts(locale).slice(0, 4);
 
   return (
     <>
@@ -53,7 +54,7 @@ export default function Home() {
               </h2>
             </FadeInUp>
             <FadeInUp delay={0.15}>
-              <Link href="/products" className="text-[#0071e3] text-[15px] hover:underline hidden md:block">
+              <Link href={`/${locale}/products`} className="text-[#0071e3] text-[15px] hover:underline hidden md:block">
                 {t("home.view_all")} →
               </Link>
             </FadeInUp>
@@ -82,10 +83,10 @@ export default function Home() {
           </FadeInUp>
           <FadeInUp delay={0.25}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/products" className="bg-white text-[#1d1d1f] text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#f5f5f7] transition-colors">
+              <Link href={`/${locale}/products`} className="bg-white text-[#1d1d1f] text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#f5f5f7] transition-colors">
                 {t("home.browse")}
               </Link>
-              <Link href="/contact" className="bg-[#0071e3] text-white text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#0077ed] transition-colors">
+              <Link href={`/${locale}/contact`} className="bg-[#0071e3] text-white text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#0077ed] transition-colors">
                 {t("home.contact_us")}
               </Link>
             </div>

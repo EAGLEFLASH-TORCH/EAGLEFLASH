@@ -1,11 +1,14 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 import { Product } from "@/data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
+  const locale = useLocale();
+
   return (
-    <Link href={`/products/${product.id}`}>
+    <Link href={`/${locale}/products/${product.id}`}>
       <motion.div
         whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.12)" }}
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
