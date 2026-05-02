@@ -1,8 +1,15 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import FadeInUp from "@/components/motion/FadeInUp";
 
-export default function ContactPage() {
-  const t = useTranslations("contact");
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ product?: string; name?: string }>;
+}) {
+  const t = await getTranslations("contact");
+  const query = searchParams ? await searchParams : {};
+  const inquiryProduct = query.product;
+  const inquiryName = query.name;
 
   return (
     <div className="bg-white min-h-screen pt-14">
@@ -18,6 +25,17 @@ export default function ContactPage() {
       </div>
 
       <div className="max-w-[800px] mx-auto px-6 py-20">
+        {inquiryProduct && (
+          <FadeInUp>
+            <div className="bg-[#e8f2ff] border border-[#0071e3]/15 rounded-3xl p-6 mb-8">
+              <p className="text-[#0071e3] text-[13px] font-semibold mb-2">{t("inquiry_label")}</p>
+              <p className="text-[#1d1d1f] text-[20px] font-semibold">{inquiryProduct}</p>
+              {inquiryName && <p className="text-[#6e6e73] text-[15px] mt-1">{inquiryName}</p>}
+              <p className="text-[#6e6e73] text-[13px] mt-4">{t("inquiry_desc")}</p>
+            </div>
+          </FadeInUp>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           <FadeInUp>
             <a href="tel:18868923813" className="group bg-[#f5f5f7] rounded-3xl p-8 flex flex-col items-center text-center hover:bg-[#e8e8ed] transition-colors">

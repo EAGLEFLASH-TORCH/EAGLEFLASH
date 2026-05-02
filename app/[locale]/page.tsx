@@ -10,6 +10,17 @@ export default function Home() {
   const t = useTranslations();
   const locale = useLocale();
   const featured = getLocalizedProducts(locale).slice(0, 4);
+  const strengths = [
+    [t("home.strength_stat_models"), t("home.strength_stat_models_desc")],
+    [t("home.strength_stat_oem"), t("home.strength_stat_oem_desc")],
+    [t("home.strength_stat_sample"), t("home.strength_stat_sample_desc")],
+  ];
+  const oemSteps = [
+    t("home.oem_step_logo"),
+    t("home.oem_step_color"),
+    t("home.oem_step_package"),
+    t("home.oem_step_sample"),
+  ];
 
   return (
     <>
@@ -39,6 +50,52 @@ export default function Home() {
         imageAlt="variety of flashlights"
         dark={false}
       />
+
+      <section className="bg-white py-28 px-6">
+        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
+          <FadeInUp>
+            <div>
+              <p className="text-[13px] font-semibold text-[#0071e3] tracking-widest uppercase mb-4">
+                {t("home.strength_eyebrow")}
+              </p>
+              <h2 className="font-bold text-[#1d1d1f] leading-tight mb-5" style={{ fontSize: "clamp(36px, 4vw, 56px)" }}>
+                {t("home.strength_title")}
+              </h2>
+              <p className="text-[#6e6e73] text-[17px] leading-relaxed mb-8">
+                {t("home.strength_desc")}
+              </p>
+              <Link href={`/${locale}/contact`} className="inline-flex bg-[#0071e3] text-white text-[17px] font-medium px-7 py-3.5 rounded-full hover:bg-[#0077ed] transition-colors">
+                {t("home.strength_cta")}
+              </Link>
+            </div>
+          </FadeInUp>
+
+          <div className="grid gap-5">
+            <FadeInUp delay={0.1}>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {strengths.map(([value, label]) => (
+                  <div key={value} className="bg-[#f5f5f7] rounded-3xl p-6">
+                    <p className="text-[30px] font-bold text-[#1d1d1f] mb-2">{value}</p>
+                    <p className="text-[13px] text-[#6e6e73] leading-relaxed">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </FadeInUp>
+            <FadeInUp delay={0.15}>
+              <div className="bg-[#1d1d1f] rounded-3xl p-8">
+                <h3 className="text-[#f5f5f7] text-[24px] font-bold mb-5">{t("home.oem_title")}</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {oemSteps.map((step) => (
+                    <div key={step} className="bg-white/10 rounded-2xl px-4 py-3 text-[14px] text-[#f5f5f7]">
+                      {step}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-white py-32 px-6">
         <div className="max-w-[1200px] mx-auto">

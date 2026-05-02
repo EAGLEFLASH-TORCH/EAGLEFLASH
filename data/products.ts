@@ -21,6 +21,17 @@ export interface ProductDetailSections {
   oemOptions: string[];
 }
 
+export interface ProductFilterOption {
+  value: string;
+  label: string;
+}
+
+export interface ProductFilterGroups {
+  lumens: ProductFilterOption[];
+  waterproof: ProductFilterOption[];
+  battery: ProductFilterOption[];
+}
+
 type Locale = "zh" | "en" | "fr" | "es" | "ar" | "ru";
 
 export const products: Product[] = [
@@ -233,6 +244,157 @@ export function getProductDetailSections(product: Product, locale: string): Prod
     packageItems: copy.packageItems(product),
     oemOptions: copy.oemOptions,
   };
+}
+
+export function getProductLumensValue(product: Product) {
+  const match = product.lumens?.match(/\d+/);
+  return match ? Number(match[0]) : 0;
+}
+
+export function getProductBatteryGroup(product: Product) {
+  const battery = product.batteryCapacity.toLowerCase();
+
+  if (battery.includes("内置") || battery.includes("built-in")) return "built-in";
+  if (battery.includes("solar") || battery.includes("太阳能")) return "solar";
+  if (battery.includes("aa") || battery.includes("aaa")) return "aa";
+  if (battery.includes("21700") || battery.includes("26650")) return "large-cell";
+  return "18650";
+}
+
+export function getProductWaterproofGroup(product: Product) {
+  const waterproof = product.waterproof ?? "";
+
+  if (waterproof.includes("IPX8")) return "ipx8";
+  if (waterproof.includes("IPX6")) return "ipx6";
+  return "daily";
+}
+
+export function getLocalizedFilterGroups(locale: string): ProductFilterGroups {
+  const resolvedLocale = normalizeLocale(locale);
+  const labels: Record<Locale, ProductFilterGroups> = {
+    zh: {
+      lumens: [
+        { value: "under-500", label: "500lm 以下" },
+        { value: "500-999", label: "500-999lm" },
+        { value: "1000-1999", label: "1000-1999lm" },
+        { value: "2000-plus", label: "2000lm 以上" },
+      ],
+      waterproof: [
+        { value: "daily", label: "日常防水" },
+        { value: "ipx6", label: "IPX6 户外防护" },
+        { value: "ipx8", label: "IPX8 深水防护" },
+      ],
+      battery: [
+        { value: "18650", label: "18650 电池" },
+        { value: "large-cell", label: "21700 / 26650" },
+        { value: "built-in", label: "内置充电" },
+        { value: "aa", label: "AA / AAA" },
+        { value: "solar", label: "太阳能" },
+      ],
+    },
+    en: {
+      lumens: [
+        { value: "under-500", label: "Under 500lm" },
+        { value: "500-999", label: "500-999lm" },
+        { value: "1000-1999", label: "1000-1999lm" },
+        { value: "2000-plus", label: "2000lm+" },
+      ],
+      waterproof: [
+        { value: "daily", label: "Daily waterproof" },
+        { value: "ipx6", label: "IPX6 outdoor" },
+        { value: "ipx8", label: "IPX8 deep water" },
+      ],
+      battery: [
+        { value: "18650", label: "18650 battery" },
+        { value: "large-cell", label: "21700 / 26650" },
+        { value: "built-in", label: "Built-in rechargeable" },
+        { value: "aa", label: "AA / AAA" },
+        { value: "solar", label: "Solar" },
+      ],
+    },
+    fr: {
+      lumens: [
+        { value: "under-500", label: "Moins de 500lm" },
+        { value: "500-999", label: "500-999lm" },
+        { value: "1000-1999", label: "1000-1999lm" },
+        { value: "2000-plus", label: "2000lm+" },
+      ],
+      waterproof: [
+        { value: "daily", label: "Étanchéité quotidienne" },
+        { value: "ipx6", label: "IPX6 extérieur" },
+        { value: "ipx8", label: "IPX8 eau profonde" },
+      ],
+      battery: [
+        { value: "18650", label: "Batterie 18650" },
+        { value: "large-cell", label: "21700 / 26650" },
+        { value: "built-in", label: "Recharge intégrée" },
+        { value: "aa", label: "AA / AAA" },
+        { value: "solar", label: "Solaire" },
+      ],
+    },
+    es: {
+      lumens: [
+        { value: "under-500", label: "Menos de 500lm" },
+        { value: "500-999", label: "500-999lm" },
+        { value: "1000-1999", label: "1000-1999lm" },
+        { value: "2000-plus", label: "2000lm+" },
+      ],
+      waterproof: [
+        { value: "daily", label: "Impermeable diario" },
+        { value: "ipx6", label: "IPX6 exterior" },
+        { value: "ipx8", label: "IPX8 agua profunda" },
+      ],
+      battery: [
+        { value: "18650", label: "Batería 18650" },
+        { value: "large-cell", label: "21700 / 26650" },
+        { value: "built-in", label: "Recargable integrada" },
+        { value: "aa", label: "AA / AAA" },
+        { value: "solar", label: "Solar" },
+      ],
+    },
+    ar: {
+      lumens: [
+        { value: "under-500", label: "أقل من 500 لومن" },
+        { value: "500-999", label: "500-999 لومن" },
+        { value: "1000-1999", label: "1000-1999 لومن" },
+        { value: "2000-plus", label: "+2000 لومن" },
+      ],
+      waterproof: [
+        { value: "daily", label: "مقاومة يومية للماء" },
+        { value: "ipx6", label: "IPX6 خارجي" },
+        { value: "ipx8", label: "IPX8 مياه عميقة" },
+      ],
+      battery: [
+        { value: "18650", label: "بطارية 18650" },
+        { value: "large-cell", label: "21700 / 26650" },
+        { value: "built-in", label: "شحن مدمج" },
+        { value: "aa", label: "AA / AAA" },
+        { value: "solar", label: "شمسي" },
+      ],
+    },
+    ru: {
+      lumens: [
+        { value: "under-500", label: "До 500lm" },
+        { value: "500-999", label: "500-999lm" },
+        { value: "1000-1999", label: "1000-1999lm" },
+        { value: "2000-plus", label: "2000lm+" },
+      ],
+      waterproof: [
+        { value: "daily", label: "Базовая влагозащита" },
+        { value: "ipx6", label: "IPX6 для улицы" },
+        { value: "ipx8", label: "IPX8 глубокая вода" },
+      ],
+      battery: [
+        { value: "18650", label: "Аккумулятор 18650" },
+        { value: "large-cell", label: "21700 / 26650" },
+        { value: "built-in", label: "Встроенная зарядка" },
+        { value: "aa", label: "AA / AAA" },
+        { value: "solar", label: "Солнечная" },
+      ],
+    },
+  };
+
+  return labels[resolvedLocale];
 }
 
 export const categories = [...new Set(products.map((p) => p.category))];

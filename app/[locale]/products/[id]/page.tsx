@@ -32,6 +32,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     { label: t("spec_waterproof"), value: product.waterproof ?? "—" },
     { label: t("spec_weight"), value: product.weight },
   ];
+  const inquiryHref = `/${locale}/contact?product=${encodeURIComponent(product.model)}&name=${encodeURIComponent(product.name)}`;
 
   return (
     <div className="bg-white min-h-screen pt-14">
@@ -75,11 +76,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
             <FadeInUp delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                <Link
+                  href={inquiryHref}
+                  className="bg-[#0071e3] text-white text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#0077ed] transition-colors text-center"
+                >
+                  {t("inquiry_cta")}
+                </Link>
                 <motion.a
                   href="tel:18868923813"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-[#0071e3] text-white text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-[#0077ed] transition-colors text-center"
+                  className="border border-[#1d1d1f]/20 text-[#1d1d1f] text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-white/70 transition-colors text-center"
                 >
                   📞 {t("call")}
                 </motion.a>
