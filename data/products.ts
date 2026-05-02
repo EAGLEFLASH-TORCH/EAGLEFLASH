@@ -14,6 +14,13 @@ export interface Product {
   category: string;
 }
 
+export interface ProductDetailSections {
+  highlights: string[];
+  applications: string[];
+  packageItems: string[];
+  oemOptions: string[];
+}
+
 type Locale = "zh" | "en" | "fr" | "es" | "ar" | "ru";
 
 export const products: Product[] = [
@@ -140,6 +147,92 @@ export function getLocalizedProducts(locale: string): Product[] {
 export function getLocalizedCategories(locale: string) {
   const resolvedLocale = normalizeLocale(locale);
   return [...new Set(products.map((p) => translateMap(p.category, resolvedLocale, categoryTranslations)))];
+}
+
+const detailCopy: Record<Locale, {
+  highlights: (product: Product) => string[];
+  applications: string[];
+  packageItems: (product: Product) => string[];
+  oemOptions: string[];
+}> = {
+  zh: {
+    highlights: (product) => [
+      `${product.lumens ?? "多档亮度"} 输出，适合稳定长时间照明`,
+      `${product.waterproof ?? "日常防水"} 防护，适应户外、作业等复杂环境`,
+      `${product.material} 机身，兼顾耐用性与手感`,
+      `${product.batteryCapacity} 供电方案，满足日常与专业使用`,
+    ],
+    applications: ["户外露营", "夜间巡检", "应急备用", "工程维修", "批量采购", "OEM / ODM 定制"],
+    packageItems: (product) => [product.name, "说明书", "包装盒", "合格证", "可选充电线/电池"],
+    oemOptions: ["Logo 丝印/激光雕刻", "外壳颜色定制", "包装盒定制", "说明书语言定制", "来样/来图打样"],
+  },
+  en: {
+    highlights: (product) => [
+      `${product.lumens ?? "Multi-mode"} output for stable everyday and professional lighting`,
+      `${product.waterproof ?? "Daily waterproof"} protection for outdoor and work environments`,
+      `${product.material} body balances durability and handling comfort`,
+      `${product.batteryCapacity} power solution for regular and demanding use`,
+    ],
+    applications: ["Camping", "Night inspection", "Emergency backup", "Repair work", "Bulk orders", "OEM / ODM customization"],
+    packageItems: (product) => [product.name, "User manual", "Retail box", "Certificate", "Optional cable / battery"],
+    oemOptions: ["Logo printing / laser engraving", "Custom housing colors", "Custom packaging", "Manual language options", "Sample development"],
+  },
+  fr: {
+    highlights: (product) => [
+      `${product.lumens ?? "Éclairage multi-mode"} pour un usage stable et professionnel`,
+      `Protection ${product.waterproof ?? "étanche au quotidien"} pour l'extérieur et le travail`,
+      `Corps en ${product.material} durable et agréable en main`,
+      `Alimentation ${product.batteryCapacity} pour les usages courants et exigeants`,
+    ],
+    applications: ["Camping", "Inspection de nuit", "Secours", "Maintenance", "Commandes en gros", "Personnalisation OEM / ODM"],
+    packageItems: (product) => [product.name, "Manuel", "Boîte", "Certificat", "Câble / batterie en option"],
+    oemOptions: ["Logo imprimé / gravé", "Couleurs personnalisées", "Emballage personnalisé", "Langue du manuel", "Échantillonnage"],
+  },
+  es: {
+    highlights: (product) => [
+      `Salida ${product.lumens ?? "multimodo"} para iluminación estable y profesional`,
+      `Protección ${product.waterproof ?? "impermeable diaria"} para exterior y trabajo`,
+      `Cuerpo de ${product.material} con buena durabilidad y agarre`,
+      `Solución de energía ${product.batteryCapacity} para usos diarios y exigentes`,
+    ],
+    applications: ["Camping", "Inspección nocturna", "Emergencias", "Reparaciones", "Pedidos al por mayor", "OEM / ODM"],
+    packageItems: (product) => [product.name, "Manual", "Caja", "Certificado", "Cable / batería opcional"],
+    oemOptions: ["Logo impreso / grabado", "Colores personalizados", "Empaque personalizado", "Idioma del manual", "Muestras"],
+  },
+  ar: {
+    highlights: (product) => [
+      `خرج ${product.lumens ?? "متعدد الأوضاع"} لإضاءة مستقرة واحترافية`,
+      `حماية ${product.waterproof ?? "مقاومة يومية للماء"} للبيئات الخارجية والعمل`,
+      `هيكل ${product.material} يجمع بين المتانة والراحة`,
+      `حل طاقة ${product.batteryCapacity} للاستخدام اليومي والمهني`,
+    ],
+    applications: ["تخييم", "فحص ليلي", "طوارئ", "صيانة", "طلبات بالجملة", "تخصيص OEM / ODM"],
+    packageItems: (product) => [product.name, "دليل المستخدم", "علبة", "شهادة", "كابل / بطارية اختيارية"],
+    oemOptions: ["طباعة / نقش الشعار", "ألوان مخصصة", "تغليف مخصص", "لغة الدليل", "تطوير عينات"],
+  },
+  ru: {
+    highlights: (product) => [
+      `${product.lumens ?? "Много режимов"} для стабильного профессионального освещения`,
+      `Защита ${product.waterproof ?? "от влаги"} для улицы и работы`,
+      `Корпус из ${product.material} сочетает прочность и удобство`,
+      `Питание ${product.batteryCapacity} для обычных и сложных задач`,
+    ],
+    applications: ["Кемпинг", "Ночной осмотр", "Аварийный запас", "Ремонт", "Оптовые заказы", "OEM / ODM"],
+    packageItems: (product) => [product.name, "Инструкция", "Коробка", "Сертификат", "Кабель / батарея опционально"],
+    oemOptions: ["Печать / гравировка логотипа", "Цвет корпуса", "Упаковка", "Язык инструкции", "Образцы"],
+  },
+};
+
+export function getProductDetailSections(product: Product, locale: string): ProductDetailSections {
+  const resolvedLocale = normalizeLocale(locale);
+  const copy = detailCopy[resolvedLocale];
+
+  return {
+    highlights: copy.highlights(product),
+    applications: copy.applications,
+    packageItems: copy.packageItems(product),
+    oemOptions: copy.oemOptions,
+  };
 }
 
 export const categories = [...new Set(products.map((p) => p.category))];
